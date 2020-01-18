@@ -1,0 +1,3 @@
+export const LOAD_ALL_PROGRAMS = "LOAD_ALL_PROGRAMS";
+export const SEARCH_PROGRAM = "SEARCH_PROGRAM";
+
