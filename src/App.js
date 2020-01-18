@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Programs from './components/search-bar/programs';
+import NavBar from './components/nav-bar/nav-bar';
 
-function App() {
-  return (
+import './App.css';
+import "./static/css/base.css";
+import "semantic-ui-css/semantic.min.css";
+
+const App = () => (
+  <BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar>
+        <Route path="/programs" component={Programs} />
+      </NavBar>
     </div>
-  );
-}
+  </BrowserRouter>
+);
 
 export default App;
