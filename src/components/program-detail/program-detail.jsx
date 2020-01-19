@@ -8,24 +8,30 @@ import { withRouter } from "react-router-dom";
 import SearchBar from "../common/search-bar";
 import PopupIcon from "../common/popup-icon";
 import Card from "../common/card";
-
+// import GoogleMapReact from "google-map-react";
+import GoogleMapReact from "../common/google-map";
 import { fetchProgram } from "../../redux/actions";
 
 const MAIN_CLASS = "ProgramDetail";
 
-class ProgramDetail extends React.Component {
-  componentDidMount(){
 
+class ProgramDetail extends React.Component {
+  componentDidMount() {
     const programId = this.props.location.pathname.split("/")[2];
 
     this.props.handleFetchProgram(programId);
   }
   render() {
-    console.log('program',this.props.program.companyLogo)
+    const location = this.props.program.programLocation
+    console.log('location', location)
     return (
       <div className={`${MAIN_CLASS}`}>
-        <div className={`${MAIN_CLASS}-company-info`}><Card {...this.props} /></div>
-        <div className={`${MAIN_CLASS}-company-location`}></div>
+        <div className={`${MAIN_CLASS}-company-info`}>
+          <Card {...this.props} />
+        </div>
+        <div className={`${MAIN_CLASS}-company-location`}>
+          <GoogleMapReact {...location} />
+        </div>
       </div>
     );
   }
