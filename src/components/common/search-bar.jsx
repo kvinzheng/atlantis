@@ -28,13 +28,13 @@ class SearchBar extends React.Component {
             <input
               className={`${MAIN_CLASS}-prompt`}
               type="text"
-              placeholder="Search Programs here..."
+              placeholder="Search here..."
               onChange={this.handleInputChange}
               value={this.state.value}
             />
             <button className="ui primary button" value="Submit" type="submit">
               <i className="search icon" />
-              Search Programs
+              Submit
             </button>
           </div>
         </form>

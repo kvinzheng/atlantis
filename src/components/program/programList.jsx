@@ -1,21 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Button, Popup } from "semantic-ui-react";
 import { Card } from "semantic-ui-react";
 
 import SearchBar from "../common/search-bar";
+import PopupIcon from "../common/popup-icon";
 
 import { fetchPrograms } from "../../redux/actions";
 
 const MAIN_CLASS = "ProgramList";
-
-const PopupExample = props => (
-  <Popup
-    content={props.content}
-    trigger={<Button icon={props.icon} className={props.cssName} style={{ display: "inline-block" }} />}
-  />
-);
 
 class ProgramList extends React.Component {
   componentWillMount() {
@@ -49,14 +42,14 @@ class ProgramList extends React.Component {
             <div style={{ display: "inline-block" }}>
               <span>{program.programDescription.substring(0, 50)} </span>
             </div>
-            <PopupExample
+            <PopupIcon
               content={program.preferMajors.join(", ")}
               icon={"eye"}
             />
             </div>
           </td>
           <td>
-            <PopupExample
+            <PopupIcon
               content={program.preferMajors.join(", ")}
               icon={"handshake"}
               cssName={"handshake-icon"}
@@ -121,9 +114,6 @@ ProgramList.propTypes = {
   handleFetchPrograms: PropTypes.func
 };
 
-PopupExample.defaultProps = {
-  cssName: ""
-}
 export default connect(mapStateToProps, { handleFetchPrograms: fetchPrograms })(
   ProgramList
 );
