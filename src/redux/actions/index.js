@@ -12,9 +12,8 @@ export const fetchPrograms = () => {
 
 export const searchProgram = (name) => {
   return async (dispatch) => {
-    const response = await axios.get(`./programs?company_name=${name}&page_num=10`);
+    const response = await axios.get(`./search/programs?keyword=${name}&column=company_name&page_num=10`);
     const programs = response.data.data.targets;
-    console.log('searchProgram',programs);
     dispatch({ type: SEARCH_PROGRAM, payload: programs });
   };
 };

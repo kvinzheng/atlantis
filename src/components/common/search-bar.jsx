@@ -17,7 +17,7 @@ class SearchBar extends React.Component {
 
   handleFormSubmit(e) {
     e.preventDefault();
-    this.handleSearchProgram(this.state.value);
+    this.props.handleSearchProgram(this.state.value);
   }
 
   render() {
@@ -28,11 +28,11 @@ class SearchBar extends React.Component {
             <input
               className={`${MAIN_CLASS}-prompt`}
               type="text"
-              placeholder="Search here..."
+              placeholder="Search Programs here..."
               onChange={this.handleInputChange}
               value={this.state.value}
             />
-            <button className="ui button" value="Submit" type="submit">
+            <button className="ui primary button" value="Submit" type="submit">
               <i className="search icon" />
               Search Programs
             </button>

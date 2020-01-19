@@ -4,7 +4,7 @@ import ProgramList from './components/program/programList';
 import NavBar from './components/nav-bar/nav-bar';
 
 import './App.css';
-// import "./static/css/base.css";
+import "./static/css/base.css";
 import "semantic-ui-css/semantic.min.css";
 
 const App = () => (
