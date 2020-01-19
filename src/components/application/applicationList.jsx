@@ -19,7 +19,6 @@ class ApplicationList extends React.Component {
     return this.props.applicationsList.map((program, index) => {
       return (
         <tr key={program.id}>
-          <td className={`${MAIN_CLASS}-id`}>{index}</td>
           <td>{program.programSlug}</td>
           <td>{program.candidateEmail}</td>
           <td>{program.programCapacity}</td>
@@ -28,11 +27,8 @@ class ApplicationList extends React.Component {
           <td>
             <div className={`${MAIN_CLASS}-description`}>
               <div style={{ display: "inline-block" }}>
-                <span>
-                  {`${program.personalStatement.substring(0, 50)} ...`}{" "}
-                </span>
-              </div>
               <PopupIcon content={program.personalStatement} icon={"eye"} />
+              </div>
             </div>
           </td>
           <td>{program.qualityScore}</td>
@@ -50,16 +46,13 @@ class ApplicationList extends React.Component {
         <table className={`${MAIN_CLASS}-table`}>
           <thead>
             <tr>
-              <th colSpan="7">
+              <th colSpan="8">
                 <SearchBar type={`${MAIN_CLASS}`} />
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th className={`${MAIN_CLASS}-table-title`}>
-                <i className="envelope icon" /> ID
-              </th>
               <th className={`${MAIN_CLASS}-name`}>Application Name</th>
               <th className={`${MAIN_CLASS}-student-email`}>Student Email</th>
               <th className={`${MAIN_CLASS}-capacity`}>Capacity</th>

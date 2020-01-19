@@ -47,9 +47,6 @@ class StudentList extends React.Component {
           <td>{student.race}</td>
           <td>
             <div className={`${MAIN_CLASS}-program-description-content`}>
-              <div style={{ display: "inline-block" }}>
-                <span>{`${student.introduction.substring(0, 50)}...`}</span>
-              </div>
               <PopupIcon content={student.introduction} icon={"eye"} />
             </div>
           </td>

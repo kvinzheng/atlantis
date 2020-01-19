@@ -12,7 +12,7 @@ import {
 
 export const fetchPrograms = () => {
   return async dispatch => {
-    const response = await axios.get("./programs?page_size=50");
+    const response = await axios.get("./programs?page_size=20");
     const programs = response.data.data.targets;
     dispatch({ type: LOAD_ALL_PROGRAMS, payload: programs });
   };
@@ -20,7 +20,7 @@ export const fetchPrograms = () => {
 
 export const fetchProgram = (id) => {
   return async dispatch => {
-    const response = await axios.get(`./program/${id}?page_size=50`);
+    const response = await axios.get(`./program/${id}?page_size=20`);
     const program = response.data.data;
     dispatch({ type: LOAD_ONE_PROGRAM, payload: program });
   };
@@ -29,7 +29,7 @@ export const fetchProgram = (id) => {
 export const searchProgram = name => {
   return async dispatch => {
     const response = await axios.get(
-      `./search/programs?keyword=${name}&column=company_name&page_size=50`
+      `./search/programs?keyword=${name}&column=company_name&page_size=20`
     );
     const programs = response.data.data.targets;
     dispatch({ type: SEARCH_PROGRAM, payload: programs });
@@ -38,7 +38,7 @@ export const searchProgram = name => {
 
 export const fetchStudents = () => {
   return async dispatch => {
-    const response = await axios.get("./students?page_size=50");
+    const response = await axios.get("./students?page_size=20");
     const programs = response.data.data.targets;
     dispatch({ type: LOAD_ALL_STUDENTS, payload: programs });
   };
@@ -47,7 +47,7 @@ export const fetchStudents = () => {
 
 export const searchStudent = (name) => {
   return async dispatch => {
-    const response = await axios.get(`./search/students?keyword=${name}&column=first_name&page_size=50`);
+    const response = await axios.get(`./search/students?keyword=${name}&column=first_name&page_size=20`);
     const students = response.data.data.targets;
     dispatch({ type: SEARCH_STUDENT, payload: students });
   };
@@ -55,7 +55,7 @@ export const searchStudent = (name) => {
 
 export const fetchApplications = () => {
   return async dispatch => {
-    const response = await axios.get("./applications?page_size=50");
+    const response = await axios.get("./applications?page_size=20");
     const applications = response.data.data.targets;
     dispatch({ type: LOAD_ALL_APPLICATIONS, payload: applications });
   };
@@ -64,7 +64,7 @@ export const fetchApplications = () => {
 export const searchApplication = name => {
   return async dispatch => {
     const response = await axios.get(
-      `./applications?candidate_email=${name}&page_size=50`
+      `./applications?candidate_email=${name}&page_size=20`
     );
     const applications = response.data.data.targets;
     dispatch({ type: SEARCH_APPLICATION, payload: applications });

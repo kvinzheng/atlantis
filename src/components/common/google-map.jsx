@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 import { Card } from "semantic-ui-react";
+import PropTypes from "prop-types";
 
+// import MyGreatPlaceWithHover from './my_great_place_with_hover.jsx';
+
+// import {K_SIZE} from './my_great_place_with_hover_styles.js';
 const CardExampleLinkCard = ({ header, meta, description }) => (
   <Card header={header} meta={meta} description={description} />
 );
@@ -11,30 +15,34 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const MAIN_CLASS = "GoogleMap";
 
 class GoogleMap extends Component {
+
   static defaultProps = {
     center: {
       lat: 59.95,
       lng: 30.33
-    },
+    },    
     coordinates: {
-        lat: 59.95,
-        lng: 30.33
-      },
-    zoom: 11
+      lat: 59.95,
+      lng: 30.33
+    },   
+    zoom: 9,
   };
 
+  constructor(props) {
+    super(props);
+  }
   render() {
     const {
-      center: { lat, lng },
       city,
       state,
       street,
       postalCode,
-      coordinates
+      coordinates,
+      center
     } = this.props;
 
     const description = `${street}, ${city}, ${state} ${postalCode}`;
-    const meta = `lag: ${coordinates.lag} ${coordinates.lng}`;
+    const meta = `lat: ${coordinates.lat}, lng: ${coordinates.lng}`;
     return (
       // Important! Always set the container height explicitly
       <div className={`${MAIN_CLASS}`}>
@@ -45,15 +53,20 @@ class GoogleMap extends Component {
             description={description}
           />
         </div>
-        <div className={`${MAIN_CLASS}-google-map-info`} style={{ height: "100vh", width: "100%" }}>
+        <div className={`${MAIN_CLASS}-google-map-info`} style={{ height: "500px", width: "100%" }}>
           <GoogleMapReact
             bootstrapURLKeys={{
               key: "AIzaSyBf6otTGdU41Hyu44Ed3l676m0bN3eLSH8"
             }}
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
+            center={this.props.center}
+            zoom={this.props.zoom}
+            // hoverDistance={K_SIZE / 2}
           >
-            <AnyReactComponent lat={lat} lng={lng} text="My Marker" />
+            <AnyReactComponent      
+            lat={59.955413}
+            lng={30.337844} text="My Marker" />
           </GoogleMapReact>
         </div>
       </div>
