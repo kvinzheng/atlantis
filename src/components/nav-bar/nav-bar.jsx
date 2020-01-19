@@ -38,7 +38,7 @@ class GlobalHeaderNav extends React.Component {
               />
             </Menu.Item>
             <Menu.Item>
-              <span className="GlobalHeaderNav-app-header">Atlantis Front End</span>
+              <span className="GlobalHeaderNav-app-header">Atlantis</span>
             </Menu.Item>
           </Menu.Menu>
 
