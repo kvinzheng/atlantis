@@ -5,7 +5,6 @@ const pictureConfig = {
   female: "https://react.semantic-ui.com/images/avatar/large/kristy.png"
 };
 const StudentCard = props => {
-  console.log("props", props);
   return (
     <Card>
       <Image src={`${pictureConfig[props.gender]}`} wrapped ui={false} />
