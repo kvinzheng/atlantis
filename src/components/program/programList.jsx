@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Card } from "semantic-ui-react";
+import { Card, Loader } from "semantic-ui-react";
 
 import SearchBar from "../common/search-bar";
 import PopupIcon from "../common/popup-icon";
@@ -11,7 +11,7 @@ import { fetchPrograms } from "../../redux/actions";
 const MAIN_CLASS = "ProgramList";
 
 class ProgramList extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.handleFetchPrograms();
   }
 
@@ -39,13 +39,13 @@ class ProgramList extends React.Component {
           <td>{program.contactNumber}</td>
           <td>
             <div className={`${MAIN_CLASS}-program-description-content`}>
-            <div style={{ display: "inline-block" }}>
-              <span>{program.programDescription.substring(0, 50)} </span>
-            </div>
-            <PopupIcon
-              content={program.preferMajors.join(", ")}
-              icon={"eye"}
-            />
+              <div style={{ display: "inline-block" }}>
+                <span>{program.programDescription.substring(0, 50)} </span>
+              </div>
+              <PopupIcon
+                content={program.preferMajors.join(", ")}
+                icon={"eye"}
+              />
             </div>
           </td>
           <td>
@@ -61,6 +61,7 @@ class ProgramList extends React.Component {
   }
 
   render() {
+    console.log('this.props.programsList',this.props.programsList)
     return (
       <div className={`${MAIN_CLASS}`}>
         <div className={`${MAIN_CLASS}-intro`}>
@@ -70,20 +71,16 @@ class ProgramList extends React.Component {
           <thead>
             <tr>
               <th colSpan="7">
-                <SearchBar type={`${MAIN_CLASS}`}/>
+                <SearchBar type={`${MAIN_CLASS}`} />
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th
-                className={`${MAIN_CLASS}-table-title`}
-              >
+              <th className={`${MAIN_CLASS}-table-title`}>
                 <i className="envelope icon" /> ID
               </th>
-              <th className={`${MAIN_CLASS}-company-logo`}>
-                Company Logo
-              </th>
+              <th className={`${MAIN_CLASS}-company-logo`}>Company Logo</th>
               <th className={`${MAIN_CLASS}-company-name`}>Company Name</th>
               <th className={`${MAIN_CLASS}-program-description`}>
                 Program Description
@@ -96,7 +93,15 @@ class ProgramList extends React.Component {
                 Prefered Major
               </th>
             </tr>
-            {this.renderProgramList()}
+            {this.props.programsList.length > 0 ? (
+              this.renderProgramList()
+            ) : (
+              <tr>
+              <td colSpan="7">
+                <Loader active />
+              </td>
+            </tr>
+            )}
           </tbody>
         </table>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Card, Loader } from "semantic-ui-react";
+import { Loader } from "semantic-ui-react";
 
 import SearchBar from "../common/search-bar";
 import PopupIcon from "../common/popup-icon";
@@ -27,7 +27,9 @@ class ApplicationList extends React.Component {
           <td>
             <div className={`${MAIN_CLASS}-description`}>
               <div style={{ display: "inline-block" }}>
-                <span>{`${program.personalStatement.substring(0, 50)} ...`} </span>
+                <span>
+                  {`${program.personalStatement.substring(0, 50)} ...`}{" "}
+                </span>
               </div>
               <PopupIcon content={program.personalStatement} icon={"eye"} />
             </div>
@@ -62,18 +64,22 @@ class ApplicationList extends React.Component {
               <th className={`${MAIN_CLASS}-program-schedule`}>
                 Program Schedule
               </th>
-              <th className={`${MAIN_CLASS}-application-status`}>Application Status</th>
+              <th className={`${MAIN_CLASS}-application-status`}>
+                Application Status
+              </th>
               <th className={`${MAIN_CLASS}-program-description`}>
                 Program Description
               </th>
-              <th className={`${MAIN_CLASS}-quality-score`}>
-                Quality Score
-              </th>
+              <th className={`${MAIN_CLASS}-quality-score`}>Quality Score</th>
             </tr>
             {this.props.applicationsList.length > 0 ? (
               this.renderApplicationList()
             ) : (
-              <Loader active />
+              <tr>
+                <td colSpan="7">
+                  <Loader active />
+                </td>
+              </tr>
             )}
           </tbody>
         </table>

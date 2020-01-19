@@ -48,7 +48,6 @@ export const fetchApplications = () => {
   return async dispatch => {
     const response = await axios.get("./applications?page_size=50");
     const applications = response.data.data.targets;
-    console.log('applications load', applications)
     dispatch({ type: LOAD_ALL_APPLICATIONS, payload: applications });
   };
 };
@@ -59,7 +58,6 @@ export const searchApplication = name => {
       `./search/applications?keyword=${name}&column=company_name&page_size=50`
     );
     const applications = response.data.data.targets;
-    console.log('applications', applications)
     dispatch({ type: SEARCH_APPLICATION, payload: applications });
   };
 };
