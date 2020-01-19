@@ -10,6 +10,12 @@ const CardExampleLinkCard = ({ header, meta, description }) => (
   <Card header={header} meta={meta} description={description} />
 );
 
+CardExampleLinkCard.propTypes = {
+    header: PropTypes.string.isRequired,
+    meta: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired
+}
+
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const MAIN_CLASS = "GoogleMap";
@@ -28,9 +34,6 @@ class GoogleMap extends Component {
     zoom: 9,
   };
 
-  constructor(props) {
-    super(props);
-  }
   render() {
     const {
       city,
@@ -60,7 +63,7 @@ class GoogleMap extends Component {
             }}
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
-            center={this.props.center}
+            center={center}
             zoom={this.props.zoom}
             // hoverDistance={K_SIZE / 2}
           >

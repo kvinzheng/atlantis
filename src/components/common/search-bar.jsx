@@ -8,6 +8,11 @@ const searchTypeConfig = {
   StudentList: "handleSearchStudent",
   ApplicationList: "handleSearchApplication"
 };
+const searchDefaulText = {
+  ProgramList: "search company name ...",
+  StudentList: "search student name ...",
+  ApplicationList: "search candidate email ..."
+}
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -34,7 +39,7 @@ class SearchBar extends React.Component {
             <input
               className={`${MAIN_CLASS}-prompt`}
               type="text"
-              placeholder="Search here..."
+              placeholder={`${searchDefaulText[this.props.type]}`}
               onChange={this.handleInputChange}
               value={this.state.value}
             />

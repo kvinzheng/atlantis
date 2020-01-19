@@ -26,16 +26,16 @@ const CardExampleCard = ({ program }) => {
       </Card.Content>
       <Card.Content extra>
         <div>
-          <a>
+          <span>
             <Icon name="phone" />
             Contact Number: {contactNumber}
-          </a>
+          </span>
         </div>
         <div>
-          <a>
+          <span>
             <Icon name="group" />
             Contact Person: {contactPerson}
-          </a>
+          </span>
         </div>
       </Card.Content>
     </Card>

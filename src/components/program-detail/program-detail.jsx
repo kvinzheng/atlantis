@@ -1,12 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Loader, Popup } from "semantic-ui-react";
-import { NavLink } from "react-router-dom";
+
 import { withRouter } from "react-router-dom";
 
-import SearchBar from "../common/search-bar";
-import PopupIcon from "../common/popup-icon";
 import Card from "../common/card";
 // import GoogleMapReact from "google-map-react";
 import GoogleMapReact from "../common/google-map";
