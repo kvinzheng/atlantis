@@ -20,6 +20,7 @@ class ApplicationList extends React.Component {
       return (
         <tr key={program.id}>
           <td className={`${MAIN_CLASS}-id`}>{index}</td>
+          <td>{program.programSlug}</td>
           <td>{program.candidateEmail}</td>
           <td>{program.programCapacity}</td>
           <td>{program.programSchedule}</td>
@@ -59,6 +60,7 @@ class ApplicationList extends React.Component {
               <th className={`${MAIN_CLASS}-table-title`}>
                 <i className="envelope icon" /> ID
               </th>
+              <th className={`${MAIN_CLASS}-name`}>Application Name</th>
               <th className={`${MAIN_CLASS}-student-email`}>Student Email</th>
               <th className={`${MAIN_CLASS}-capacity`}>Capacity</th>
               <th className={`${MAIN_CLASS}-program-schedule`}>

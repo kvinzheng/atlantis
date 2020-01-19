@@ -1,70 +1,80 @@
 .ProgramList {
+  &-id {
+    font-wieght: bold;
+  }
 
-    &-id {
-        font-wieght: bold;
-    }
-    
-    &-table {
-        margin: 0 auto;
-        border-collapse: collapse;
-    }
-    &-table-title {
-        width: 80px;
-        height: 60px
-    }
-    &-company-link {
-        text-decoration: none;
-    }
-    &-company-name {
-      width: 220px;
-    }
-    &-company-logo {
-        width: 113px;
-    }
-    &-program-description {
-      width: 155px;
-    }
+  &-table {
+    margin: 0 100px;
+    border-collapse: collapse;
+  }
+  &-table-title {
+    width: 80px;
+    height: 60px;
+  }
+  &-company-link {
+    text-decoration: none;
+  }
+  &-company-name {
+    width: 15%;
+  }
+  &-company-logo {
+    width: 15%;
+  }
+  &-program-description {
+    width: 15%;
+  }
 
-    &-phone-number {
-      width: 97px;
-    }
-    
-    &-program-description {
-        width: 155px;
-    }
+  &-phone-number {
+    width: 15%;
+  }
 
-    &-preferred-majors {
-        width: 140px;
-    }
+  &-program-description {
+    width: 20%;
+  }
 
-    &-program-description-content {
-        display: flex;
-    }
+  &-preferred-majors {
+    width: 20%;
+  }
 
-    tr:nth-child(2n) {
-        background-color: #f9f9f9;
-    }
+  &-program-description-content {
+    text-align: center;
+  }
 
-    td, th {
-        border: 1px solid #ddd;
-        padding: 8px;
-    }
-    th {
-      color: rgba(0,0,0,.44);
-    }
+  tr:nth-child(2n) {
+    background-color: #f9f9f9;
+  }
 
-    td:first-child {
-        color: rgba(0,0,0,.44);
-    }
+  td,
+  th {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  th {
+    color: rgba(0, 0, 0, 0.44);
+  }
+
+  td:first-child {
+    color: rgba(0, 0, 0, 0.44);
+  }
 }
 
 .ProgramList {
-    .ui.card,.ProgramList-img {
-        width: 150px;
-    }
+  .ui.card,
+  .ProgramList-img {
+    width: 100%;
+    transition: all 0.5s ease;
+    transform: scale(1);
+  }
 
-    .handshake-icon.ui.button {
-        font-size: 20px;
-        color: #1E90FF;
-    }
+  .ui.card:hover,
+  .ProgramList-img:hover {
+    -moz-transition: all 0.3s ease;
+    transition: all 0.5s ease;
+    transform: scale(1.1);
+  }
+
+  .handshake-icon.ui.button {
+    font-size: 20px;
+    color: #1e90ff;
+  }
 }

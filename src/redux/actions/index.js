@@ -6,7 +6,8 @@ import {
   LOAD_ALL_STUDENTS,
   SEARCH_STUDENT,
   LOAD_ALL_APPLICATIONS,
-  SEARCH_APPLICATION
+  SEARCH_APPLICATION,
+  LOAD_ONE_PROGRAM
 } from "./type";
 
 export const fetchPrograms = () => {
@@ -14,6 +15,14 @@ export const fetchPrograms = () => {
     const response = await axios.get("./programs?page_size=50");
     const programs = response.data.data.targets;
     dispatch({ type: LOAD_ALL_PROGRAMS, payload: programs });
+  };
+};
+
+export const fetchProgram = (id) => {
+  return async dispatch => {
+    const response = await axios.get(`./program/${id}?page_size=50`);
+    const program = response.data.data;
+    dispatch({ type: LOAD_ONE_PROGRAM, payload: program });
   };
 };
 
@@ -55,7 +64,7 @@ export const fetchApplications = () => {
 export const searchApplication = name => {
   return async dispatch => {
     const response = await axios.get(
-      `./search/applications?keyword=${name}&column=company_name&page_size=50`
+      `./applications?candidate_email=${name}&page_size=50`
     );
     const applications = response.data.data.targets;
     dispatch({ type: SEARCH_APPLICATION, payload: applications });

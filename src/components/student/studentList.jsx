@@ -33,7 +33,6 @@ class StudentList extends React.Component {
     return this.props.studentList.map((student, index) => {
       return (
         <tr key={student.id}>
-          <td className={`${MAIN_CLASS}-index`}>{index}</td>
           <td>
             <span>{`${student.firstName} ${student.lastName}`}</span>
           </td>
@@ -81,9 +80,6 @@ class StudentList extends React.Component {
           </thead>
           <tbody>
             <tr>
-              <th className={`${MAIN_CLASS}-table-title`}>
-                <i className="envelope icon" /> ID
-              </th>
               <th className={`${MAIN_CLASS}-name`}>Name</th>
               <th className={`${MAIN_CLASS}-gender`}>Genders</th>
               <th className={`${MAIN_CLASS}-university`}>University</th>
@@ -96,7 +92,7 @@ class StudentList extends React.Component {
               this.renderStudentList()
             ) : (
               <tr>
-                <td colSpan="8">
+                <td colSpan="7">
                   <Loader active />
                 </td>
               </tr>

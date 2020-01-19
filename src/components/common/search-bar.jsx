@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { searchProgram, searchStudent } from "../../redux/actions/index";
+import { searchProgram, searchStudent, searchApplication } from "../../redux/actions/index";
 const MAIN_CLASS = "SearchBar";
 
 const searchTypeConfig = {
@@ -55,5 +55,6 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
   handleSearchProgram: searchProgram,
-  handleSearchStudent: searchStudent
+  handleSearchStudent: searchStudent,
+  handleSearchApplication: searchApplication
 })(SearchBar);
