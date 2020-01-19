@@ -20,7 +20,6 @@ class ProgramDetail extends React.Component {
   }
   render() {
     const location = this.props.program.programLocation
-    console.log('location', location)
     return (
       <div className={`${MAIN_CLASS}`}>
         <div className={`${MAIN_CLASS}-company-info`}>

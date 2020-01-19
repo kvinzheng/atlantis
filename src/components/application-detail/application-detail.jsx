@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import { withRouter } from "react-router-dom";
 
-import Card from "../common/card";
+import ApplicationCard from "../common/application-card";
 import { fetchApplication } from "../../redux/actions";
 
 const MAIN_CLASS = "ApplicationDetail";
@@ -16,11 +16,11 @@ class ApplicationDetail extends React.Component {
     this.props.handleFetchApplication(applicationId);
   }
   render() {
-    console.log('this.props', this.props)
     return (
       <div className={`${MAIN_CLASS}`}>
         <div className={`${MAIN_CLASS}-company-info`}>
-        <Card {...this.props} />
+          pending
+        <ApplicationCard {...this.props.application} />
         </div>
         <div className={`${MAIN_CLASS}-company-location`}>
         </div>
@@ -30,7 +30,7 @@ class ApplicationDetail extends React.Component {
 }
 const mapStateToProps = state => {
   return {
-    application: state.application
+    application: state.application.data
   };
 };
 

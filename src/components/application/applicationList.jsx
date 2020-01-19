@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Loader } from "semantic-ui-react";
-import { Icon,Button } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 
 import SearchBar from "../common/search-bar";
 import PopupIcon from "../common/popup-icon";

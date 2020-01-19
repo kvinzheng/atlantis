@@ -50,7 +50,6 @@ export const fetchStudents = () => {
 export const fetchStudent= (id) => {
   return async dispatch => {
     const response = await axios.get(`./student/${id}?page_size=20`);
-    console.log('response',response)
     const program = response.data.data;
     dispatch({ type: LOAD_ONE_STUDENT, payload: program });
   };
@@ -61,7 +60,6 @@ export const searchStudent = (name) => {
   return async dispatch => {
     const response = await axios.get(`./search/students?keyword=${name}&column=first_name&page_size=20`);
     const students = response.data.data.targets;
-    console.log('students',students)
     dispatch({ type: SEARCH_STUDENT, payload: students });
   };
 };
@@ -76,7 +74,7 @@ export const fetchApplications = () => {
 
 export const fetchApplication = (id) => {
   return async dispatch => {
-    const response = await axios.get(`./application/${id}?page_size=20`);
+    const response = await axios.get(`./application/${id}`);
     const application = response.data.data;
     dispatch({ type: LOAD_ONE_APPLICATION, payload: application });
   };
