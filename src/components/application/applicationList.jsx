@@ -10,6 +10,11 @@ import { fetchApplications } from "../../redux/actions";
 
 const MAIN_CLASS = "ApplicationList";
 
+const colorConfig = {
+  pending: "orange",
+  accepted: "green",
+  rejected: "red"
+};
 class ApplicationList extends React.Component {
   componentDidMount() {
     this.props.handleFetchApplications();
@@ -23,11 +28,15 @@ class ApplicationList extends React.Component {
           <td>{program.candidateEmail}</td>
           <td>{program.programCapacity}</td>
           <td>{program.programSchedule}</td>
-          <td>{program.applicationStatus}</td>
+          <td>
+            <span style={{ color: colorConfig[program.applicationStatus] }}>
+              {program.applicationStatus}
+            </span>
+          </td>
           <td>
             <div className={`${MAIN_CLASS}-description`}>
               <div style={{ display: "inline-block" }}>
-              <PopupIcon content={program.personalStatement} icon={"eye"} />
+                <PopupIcon content={program.personalStatement} icon={"eye"} />
               </div>
             </div>
           </td>

@@ -4,6 +4,7 @@ import ProgramList from './components/program/program-list';
 import StudentList from './components/student/studentList';
 import ApplicationList from './components/application/applicationList';
 import ProgramDetail from './components/program-detail/program-detail';
+import StudentDetail from './components/student-detail/student-detail';
 
 import NavBar from './components/nav-bar/nav-bar';
 
@@ -19,6 +20,7 @@ const App = () => (
         <Route path="/students" component={StudentList} />
         <Route path="/applications" component={ApplicationList} />
         <Route exact path="/program/:programId" component={ProgramDetail} />
+        <Route exact path="/student/:studentId" component={StudentDetail} />
       </NavBar>
     </div>
   </BrowserRouter>

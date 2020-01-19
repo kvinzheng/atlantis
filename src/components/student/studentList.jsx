@@ -2,13 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import { Icon } from "semantic-ui-react";
+import { Icon,Button } from "semantic-ui-react";
 import { Loader } from "semantic-ui-react";
 
 import SearchBar from "../common/search-bar";
 import PopupIcon from "../common/popup-icon";
 
-import { fetchStudents } from "../../redux/actions";
+import { fetchStudents,searchStudent } from "../../redux/actions";
 
 const MAIN_CLASS = "StudentList";
 
@@ -24,6 +24,7 @@ const iconConfig = {
   trans: "transgender",
   other: "genderless"
 };
+
 class StudentList extends React.Component {
   componentWillMount() {
     this.props.handleFetchStudents();
@@ -34,13 +35,23 @@ class StudentList extends React.Component {
       return (
         <tr key={student.id}>
           <td>
+            <Button 
+              style={{float: "left"}}
+              icon="info"
+              size="medium"
+              color="blue"
+              onClick={() => {
+                this.props.handleFetchStudent(student.id);
+                this.props.history.push(`/student/${student.id}`);
+              }}
+            />
             <span>{`${student.firstName} ${student.lastName}`}</span>
           </td>
           <td>
             <Icon
               name={iconConfig[student.gender]}
               color={colorConfig[student.gender]}
-            />{" "}
+            />
             <span>{student.gender}</span>
           </td>
           <td>{student.school}</td>
@@ -51,7 +62,9 @@ class StudentList extends React.Component {
             </div>
           </td>
           <td>
-            <span>{student.gpa}</span>
+            <span style={{ color: student.gpa >= 3 ? "green" : "black" }}>
+              {student.gpa}
+            </span>
           </td>
           <td>
             <span>{student.phoneNumber}</span>
@@ -111,6 +124,7 @@ StudentList.propTypes = {
   handleFetchPrograms: PropTypes.func
 };
 
-export default connect(mapStateToProps, { handleFetchStudents: fetchStudents })(
-  StudentList
-);
+export default connect(mapStateToProps, {
+  handleFetchStudents: fetchStudents,
+  handleFetchStudent: searchStudent
+})(StudentList);

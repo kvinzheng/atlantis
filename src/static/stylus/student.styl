@@ -1,55 +1,69 @@
 .StudentList {
+  &-id {
+    font-wieght: bold;
+    width: 70px;
+  }
 
-    &-id {
-        font-wieght: bold;
-        width: 70px;
-    }
-    
-    &-table {
-        margin: 0px 110px;
-        border-collapse: collapse;
-    }
-    &-table-title {
-        height: 55px;
-    }
-    &-race {
-        width: 15%;
-    }
-    &-gender {
-      width: 15%;
-    }
-    &-name {
-        width: 15%;
-    }
-    &-introduction {
-      width: 15%;
-    }
+  &-table {
+    margin: 0px 110px;
+    border-collapse: collapse;
+  }
+  &-table-title {
+    height: 55px;
+  }
+  &-race {
+    width: 15%;
+  }
+  &-gender {
+    width: 15%;
+  }
+  &-name {
+    width: 15%;
+  }
+  &-introduction {
+    width: 15%;
+  }
 
-    &-phone-numbers {
-      width: 15%;
-    }
-    
-    &-university {
-        width: 20%;
-    }
+  &-phone-numbers {
+    width: 15%;
+  }
 
-    &-gpa {
-        width: 5%;
-    }
+  &-university {
+    width: 20%;
+  }
 
-    tr:nth-child(2n) {
-        background-color: #f9f9f9;
-    }
+  &-gpa {
+    width: 5%;
+  }
 
-    td, th {
-        border: 1px solid #ddd;
-        padding: 8px;
-    }
-    th {
-      color: rgba(0,0,0,.44);
-    }
+  tr:nth-child(2n) {
+    background-color: #f9f9f9;
+  }
 
-    td:first-child {
-        color: rgba(0,0,0,.44);
-    }
+  td,
+  th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  th {
+    color: rgba(0, 0, 0, 0.44);
+  }
+
+  td:first-child {
+    color: rgba(0, 0, 0, 0.44);
+  }
+}
+
+.StudentDetail {
+  margin: 0px 110px;
+
+  &-info {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+  }
+  &-description {
+    display: inline-block;
+    vertical-align: top;
+  }
 }
