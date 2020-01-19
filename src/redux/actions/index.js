@@ -9,7 +9,7 @@ import {
 
 export const fetchPrograms = () => {
   return async dispatch => {
-    const response = await axios.get("./programs?page_size=10");
+    const response = await axios.get("./programs?page_size=50");
     const programs = response.data.data.targets;
     dispatch({ type: LOAD_ALL_PROGRAMS, payload: programs });
   };
@@ -18,7 +18,7 @@ export const fetchPrograms = () => {
 export const searchProgram = name => {
   return async dispatch => {
     const response = await axios.get(
-      `./search/programs?keyword=${name}&column=company_name&page_num=10`
+      `./search/programs?keyword=${name}&column=company_name&page_size=50`
     );
     const programs = response.data.data.targets;
     dispatch({ type: SEARCH_PROGRAM, payload: programs });
@@ -27,8 +27,17 @@ export const searchProgram = name => {
 
 export const fetchStudents = () => {
   return async dispatch => {
-    const response = await axios.get("./students?page_size=10");
+    const response = await axios.get("./students?page_size=50");
     const programs = response.data.data.targets;
     dispatch({ type: LOAD_ALL_STUDENTS, payload: programs });
+  };
+};
+
+
+export const searchStudent = (name) => {
+  return async dispatch => {
+    const response = await axios.get(`./search/students?keyword=${name}&column=first_name&page_size=50`);
+    const students = response.data.data.targets;
+    dispatch({ type: LOAD_ALL_STUDENTS, payload: students });
   };
 };

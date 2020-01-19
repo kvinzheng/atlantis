@@ -1,8 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { searchProgram } from "../../redux/actions/index";
+import { searchProgram, searchStudent } from "../../redux/actions/index";
 const MAIN_CLASS = "SearchBar";
 
+const searchTypeConfig = {
+  ProgramList: "handleSearchProgram",
+  StudentList: "handleSearchStudent"
+};
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +21,8 @@ class SearchBar extends React.Component {
 
   handleFormSubmit(e) {
     e.preventDefault();
-    this.props.handleSearchProgram(this.state.value);
+    const handlerType = searchTypeConfig[this.props.type];
+    this.props[handlerType](this.state.value);
   }
 
   render() {
@@ -47,6 +52,7 @@ const mapStateToProps = state => {
   return {};
 };
 
-export default connect(mapStateToProps, { handleSearchProgram: searchProgram })(
-  SearchBar
-);
+export default connect(mapStateToProps, {
+  handleSearchProgram: searchProgram,
+  handleSearchStudent: searchStudent
+})(SearchBar);

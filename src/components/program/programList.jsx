@@ -70,7 +70,7 @@ class ProgramList extends React.Component {
           <thead>
             <tr>
               <th colSpan="7">
-                <SearchBar />
+                <SearchBar type={`${MAIN_CLASS}`}/>
               </th>
             </tr>
           </thead>

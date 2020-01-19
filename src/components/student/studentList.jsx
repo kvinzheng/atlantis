@@ -11,7 +11,18 @@ import { fetchStudents } from "../../redux/actions";
 
 const MAIN_CLASS = "StudentList";
 
-
+const colorConfig = {
+  male: "blue",
+  female: "pink",
+  trans: "yellow",
+  other: "orange"
+};
+const iconConfig = {
+  male: "male",
+  female: "female",
+  trans: "transgender",
+  other: "genderless"
+}
 class StudentList extends React.Component {
   componentWillMount() {
     this.props.handleFetchStudents();
@@ -21,19 +32,19 @@ class StudentList extends React.Component {
     return this.props.studentList.map((student, index) => {
       return (
         <tr key={student.id}>
-          <td className={`${MAIN_CLASS}-id`}>{student.id}</td>
+          <td className={`${MAIN_CLASS}-index`}>{index}</td>
           <td>
             <span>{`${student.firstName} ${student.lastName}`}</span>
           </td>
           <td>
-          <Icon name={student.gender}/> <span>{student.gender}</span>
+          <Icon name={iconConfig[student.gender]} color={colorConfig[student.gender]}/> <span>{student.gender}</span>
           </td>
           <td>{student.school}</td>
           <td>{student.race}</td>
           <td>
             <div className={`${MAIN_CLASS}-program-description-content`}>
             <div style={{ display: "inline-block" }}>
-              <span>introduction:</span>
+              <span>{`${student.introduction.substring(0, 50)}...`}</span>
             </div>
             <PopupIcon
               content={student.introduction}
@@ -42,7 +53,10 @@ class StudentList extends React.Component {
             </div>
           </td>
           <td>
-           <span>{student.race}</span>
+           <span>{student.gpa}</span>
+          </td>
+          <td>
+           <span>{student.phoneNumber}</span>
           </td>
         </tr>
       );
@@ -58,31 +72,34 @@ class StudentList extends React.Component {
         <table className={`${MAIN_CLASS}-table`}>
           <thead>
             <tr>
-              <th colSpan="7">
-                <SearchBar />
+              <th colSpan="8">
+                <SearchBar type={`${MAIN_CLASS}`}/>
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th
-                className={`${MAIN_CLASS}-table-title`}
+                className={`${MAIN_CLASS}-id`}
               >
                 <i className="envelope icon" /> ID
               </th>
-              <th className={`${MAIN_CLASS}-company-logo`}>
+              <th className={`${MAIN_CLASS}-name`}>
                 Name
               </th>
-              <th className={`${MAIN_CLASS}-company-name`}>Majors</th>
-              <th className={`${MAIN_CLASS}-program-description`}>
-                gender
+              <th className={`${MAIN_CLASS}-gender`}>Genders</th>
+              <th className={`${MAIN_CLASS}-university`}>
+                University
               </th>
-              <th className={`${MAIN_CLASS}-phone-number`}>School</th>
-              <th className={`${MAIN_CLASS}-program-description`}>
-                introduction
+              <th className={`${MAIN_CLASS}-race`}>Race</th>
+              <th className={`${MAIN_CLASS}-introduction`}>
+                Introduction
               </th>
-              <th className={`${MAIN_CLASS}-preferred-majors`}>
-                gpa
+              <th className={`${MAIN_CLASS}-gpa`}>
+                GPA
+              </th>
+              <th className={`${MAIN_CLASS}-phone-numbers`}>
+                Phone Number
               </th>
             </tr>
             {this.renderStudentList()}
