@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import ProgramList from './components/program/programList';
 import StudentList from './components/student/studentList';
+import ApplicationList from './components/application/applicationList';
 
 import NavBar from './components/nav-bar/nav-bar';
 
@@ -15,6 +16,7 @@ const App = () => (
       <NavBar>
         <Route path="/programs" component={ProgramList} />
         <Route path="/students" component={StudentList} />
+        <Route path="/applications" component={ApplicationList} />
       </NavBar>
     </div>
   </BrowserRouter>

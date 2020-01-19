@@ -64,7 +64,7 @@ class ProgramList extends React.Component {
     return (
       <div className={`${MAIN_CLASS}`}>
         <div className={`${MAIN_CLASS}-intro`}>
-          <h2 className="ui dividing user-contro">Browse Programs</h2>
+          <h2 className="ui dividing user-contro">Browse Applications</h2>
         </div>
         <table className={`${MAIN_CLASS}-table`}>
           <thead>

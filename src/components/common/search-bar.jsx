@@ -5,7 +5,8 @@ const MAIN_CLASS = "SearchBar";
 
 const searchTypeConfig = {
   ProgramList: "handleSearchProgram",
-  StudentList: "handleSearchStudent"
+  StudentList: "handleSearchStudent",
+  ApplicationList: "handleSearchApplication"
 };
 class SearchBar extends React.Component {
   constructor(props) {
