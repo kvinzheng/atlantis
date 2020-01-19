@@ -85,11 +85,10 @@ class ProgramList extends React.Component {
             <tr>
               <th
                 className={`${MAIN_CLASS}-table-title`}
-                style={{ width: "80px" }}
               >
                 <i className="envelope icon" /> ID
               </th>
-              <th className="" style={{ width: "113px" }}>
+              <th className={`${MAIN_CLASS}-company-logo`}>
                 Company Logo
               </th>
               <th className={`${MAIN_CLASS}-company-name`}>Company Name</th>
