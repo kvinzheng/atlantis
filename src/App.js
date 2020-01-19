@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import ProgramList from './components/program/program-list';
 import StudentList from './components/student/studentList';
 import ApplicationList from './components/application/applicationList';
@@ -23,7 +23,7 @@ const App = () => (
         <Route exact path="/program/:programId" component={ProgramDetail} />
         <Route exact path="/student/:studentId" component={StudentDetail} />
         <Route exact path="/application/:applicationId" component={ApplicationDetail} />
-
+        <Redirect from="/" to="/programs" />
       </NavBar>
     </div>
   </BrowserRouter>
