@@ -19,7 +19,6 @@ class ApplicationDetail extends React.Component {
     return (
       <div className={`${MAIN_CLASS}`}>
         <div className={`${MAIN_CLASS}-company-info`}>
-          pending
         <ApplicationCard {...this.props.application} />
         </div>
         <div className={`${MAIN_CLASS}-company-location`}>

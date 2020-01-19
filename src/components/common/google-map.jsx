@@ -3,9 +3,6 @@ import GoogleMapReact from "google-map-react";
 import { Card } from "semantic-ui-react";
 import PropTypes from "prop-types";
 
-// import MyGreatPlaceWithHover from './my_great_place_with_hover.jsx';
-
-// import {K_SIZE} from './my_great_place_with_hover_styles.js';
 const CardExampleLinkCard = ({ header, meta, description }) => (
   <Card header={header} meta={meta} description={description} />
 );
@@ -47,7 +44,6 @@ class GoogleMap extends Component {
     const description = `${street}, ${city}, ${state} ${postalCode}`;
     const meta = `lat: ${coordinates.lat}, lng: ${coordinates.lng}`;
     return (
-      // Important! Always set the container height explicitly
       <div className={`${MAIN_CLASS}`}>
         <div className={`${MAIN_CLASS}-company-info`}>
           <CardExampleLinkCard
