@@ -2,11 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Loader } from "semantic-ui-react";
+import { Icon,Button } from "semantic-ui-react";
 
 import SearchBar from "../common/search-bar";
 import PopupIcon from "../common/popup-icon";
 
-import { fetchApplications } from "../../redux/actions";
+import { fetchApplications,fetchApplication } from "../../redux/actions";
 
 const MAIN_CLASS = "ApplicationList";
 
@@ -21,26 +22,37 @@ class ApplicationList extends React.Component {
   }
 
   renderApplicationList() {
-    return this.props.applicationsList.map((program, index) => {
+    return this.props.applicationsList.map((application, index) => {
       return (
-        <tr key={program.id}>
-          <td>{program.programSlug}</td>
-          <td>{program.candidateEmail}</td>
-          <td>{program.programCapacity}</td>
-          <td>{program.programSchedule}</td>
+        <tr key={application.id}>
           <td>
-            <span style={{ color: colorConfig[program.applicationStatus] }}>
-              {program.applicationStatus}
+          <Button 
+              style={{float: "left"}}
+              icon="file text"
+              size="medium"
+              color="blue"
+              onClick={() => {
+                this.props.handleFetchApplication(application.id);
+                this.props.history.push(`/application/${application.id}`);
+              }}
+            />
+               <span>{application.programSlug}</span></td>
+          <td>{application.candidateEmail}</td>
+          <td>{application.programCapacity}</td>
+          <td>{application.programSchedule}</td>
+          <td>
+            <span style={{ color: colorConfig[application.applicationStatus] }}>
+              {application.applicationStatus}
             </span>
           </td>
           <td>
             <div className={`${MAIN_CLASS}-description`}>
               <div style={{ display: "inline-block" }}>
-                <PopupIcon content={program.personalStatement} icon={"eye"} />
+                <PopupIcon content={application.personalStatement} icon={"eye"} />
               </div>
             </div>
           </td>
-          <td>{program.qualityScore}</td>
+          <td>{application.qualityScore}</td>
         </tr>
       );
     });
@@ -55,7 +67,7 @@ class ApplicationList extends React.Component {
         <table className={`${MAIN_CLASS}-table`}>
           <thead>
             <tr>
-              <th colSpan="8">
+              <th colSpan="7">
                 <SearchBar type={`${MAIN_CLASS}`} />
               </th>
             </tr>
@@ -103,5 +115,6 @@ ApplicationList.propTypes = {
 };
 
 export default connect(mapStateToProps, {
-  handleFetchApplications: fetchApplications
+  handleFetchApplications: fetchApplications,
+  handleFetchApplication: fetchApplication
 })(ApplicationList);

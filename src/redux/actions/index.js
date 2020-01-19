@@ -8,7 +8,8 @@ import {
   LOAD_ALL_APPLICATIONS,
   SEARCH_APPLICATION,
   LOAD_ONE_PROGRAM,
-  LOAD_ONE_STUDENT
+  LOAD_ONE_STUDENT,
+  LOAD_ONE_APPLICATION
 } from "./type";
 
 export const fetchPrograms = () => {
@@ -70,6 +71,14 @@ export const fetchApplications = () => {
     const response = await axios.get("./applications?page_size=20");
     const applications = response.data.data.targets;
     dispatch({ type: LOAD_ALL_APPLICATIONS, payload: applications });
+  };
+};
+
+export const fetchApplication = (id) => {
+  return async dispatch => {
+    const response = await axios.get(`./application/${id}?page_size=20`);
+    const application = response.data.data;
+    dispatch({ type: LOAD_ONE_APPLICATION, payload: application });
   };
 };
 
