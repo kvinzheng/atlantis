@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import ProgramList from './components/program/program-list';
 import StudentList from './components/student/studentList';
 import ApplicationList from './components/application/applicationList';
-import ProgramDetail from './components/program-detail/program-detail';
+import ProgramDetail from './components/program/program-detail';
 import StudentDetail from './components/student-detail/student-detail';
 import ApplicationDetail from './components/application-detail/application-detail';
 

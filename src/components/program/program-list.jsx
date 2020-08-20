@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { Card, Loader, Popup } from "semantic-ui-react";
 import { withRouter } from "react-router-dom";
 
+import SpinningIcon from "../common/spinning-icon";
 import SearchBar from "../common/search-bar";
 import PopupIcon from "../common/popup-icon";
 
@@ -100,11 +101,7 @@ class ProgramList extends React.Component {
             {this.props.programsList.length > 0 ? (
               this.renderProgramList()
             ) : (
-              <tr>
-                <td colSpan="7">
-                  <Loader active />
-                </td>
-              </tr>
+        <SpinningIcon message={"Programs is loading"}/>
             )}
           </tbody>
         </table>
